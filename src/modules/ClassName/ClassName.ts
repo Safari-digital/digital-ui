@@ -1,0 +1,38 @@
+import '@safari-node/core';
+import { actionKeywords, booleanKeywords, excludedKeywords } from './keywords';
+
+/**
+ * Resolve props to class names
+ */
+const resolveProps = (baseClass: string, props: Record<string, any>) => {
+    const returnReduced = (acc: string, resolved: string) => (acc.isEmpty() ? resolved : `${acc} ${resolved}`);
+
+    const resolved = Object.keys(props).reduce((acc, key) => {
+        if (
+            !props[key] ||
+            (typeof props[key] === 'string' && props[key].isEmpty()) ||
+            excludedKeywords.includes(key) ||
+            key.startsWith('aria') ||
+            key.startsWith('data')
+        ) {
+            return acc;
+        }
+        if (key === 'className' || key === 'class') {
+            return returnReduced(acc, props[key]);
+        }
+        if (actionKeywords.includes(key) && typeof props[key] === 'function') {
+            return returnReduced(acc, [baseClass, 'action'].joinTruthy('-'));
+        }
+        if (booleanKeywords.includes(key) && props[key] === true) {
+            return returnReduced(acc, [baseClass, key].joinTruthy('-'));
+        }
+        if (typeof props[key] === 'string' || typeof props[key] === 'number') {
+            return returnReduced(acc, [baseClass, key, props[key]].joinTruthy('-'));
+        }
+        return acc;
+    }, '');
+
+    return resolved.isEmpty() ? baseClass : `${baseClass} ${resolved}`;
+};
+
+export default { resolveProps };
