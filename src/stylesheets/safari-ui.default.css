@@ -2,4 +2,8 @@
     --spacing-1: .5rem;
     --spacing-2: 1rem;
     --spacing-3: 1.5rem;
+
+    --palette-primary: #007bff;
+    --palette-text: #333;
+    --palette-text-disabled: #999;
 }
