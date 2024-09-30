@@ -124,4 +124,6 @@ export const booleanKeywords = [
     'fullWidth',
     'isFullHeight',
     'fullHeight',
+    'isResizable',
+    'resizable',
 ];

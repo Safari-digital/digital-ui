@@ -38,6 +38,10 @@ test('ClassName.resolveProps(): With number property, should return "property-va
     expect(ClassName.resolveProps(base, { size: 2 })).toBe(`${base} ${base}-size-2`);
 });
 
+test('ClassName.resolveProps(): With undefined property, should ignore property', () => {
+    expect(ClassName.resolveProps(base, { size: undefined })).toBe(base);
+});
+
 test('ClassName.resolveProps(): With empty string property, should ignore property', () => {
     expect(ClassName.resolveProps(base, { variant: '' })).toBe(base);
 });

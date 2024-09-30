@@ -1,0 +1,82 @@
+.SafariUi-Box {
+    display: flex;
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+.SafariUi-Box-fullWidth {
+    width: 100%;
+}
+
+.SafariUi-Box-fullHeight {
+    height: 100%;
+}
+
+.SafariUi-Box-resizable {
+    resize: both;
+    overflow: auto;
+}
+
+.SafariUi-Box-direction-column {
+    flex-direction: column;
+}
+
+.SafariUi-Box-direction-row {
+    flex-direction: row;
+}
+
+.SafariUi-Box-justify-center {
+    justify-content: center;
+}
+
+.SafariUi-Box-justify-end {
+    justify-content: flex-end;
+}
+
+.SafariUi-Box-justify-start {
+    justify-content: flex-start;
+}
+
+.SafariUi-Box-justify-space-between {
+    justify-content: space-between;
+}
+
+.SafariUi-Box-justify-space-around {
+    justify-content: space-around;
+}
+
+.SafariUi-Box-align-center {
+    align-items: center;
+}
+
+.SafariUi-Box-align-end {
+    align-items: flex-end;
+}
+
+.SafariUi-Box-align-start {
+    align-items: flex-start;
+}
+
+.SafariUi-Box-p-1 {
+    padding: var(--spacing-1);
+}
+
+.SafariUi-Box-p-2 {
+    padding: var(--spacing-2);
+}
+
+.SafariUi-Box-p-3 {
+    padding: var(--spacing-3);
+}
+
+.SafariUi-Box-m-1 {
+    margin: var(--spacing-1);
+}
+
+.SafariUi-Box-m-2 {
+    margin: var(--spacing-2);
+}
+
+.SafariUi-Box-m-3 {
+    margin: var(--spacing-3);
+}

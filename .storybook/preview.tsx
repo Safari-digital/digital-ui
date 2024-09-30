@@ -1,10 +1,13 @@
 import { Preview, StoryFn } from '@storybook/react';
 import React from 'react';
+import '../src/stylesheets/safari-ui.default.css';
 
 const Decorator = (Story: StoryFn) => {
     return (
         <div
             style={{
+                height: '100vh',
+                width: '100vw',
                 boxSizing: 'border-box',
                 display: 'flex',
                 padding: '2rem',
