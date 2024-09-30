@@ -3,7 +3,9 @@ import useClassName from '../../modules/ClassName/useClassName';
 import type { SafariNodeWithChildren } from '../types';
 import './Box.styles.css';
 
-export interface BoxProps extends SafariNodeWithChildren {
+type BaseBoxProps = React.HTMLAttributes<HTMLDivElement> & SafariNodeWithChildren;
+
+export interface BoxProps extends BaseBoxProps {
     p?: null | 0 | 1 | 2 | 3;
     m?: null | 0 | 1 | 2 | 3;
     resizable?: boolean;

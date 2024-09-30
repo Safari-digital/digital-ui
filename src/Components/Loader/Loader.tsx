@@ -1,14 +1,17 @@
 import React from 'react';
 import { useClassName } from '../../modules';
+import type { SafariNodeWithChildren } from '../types';
 import './Loader.styles.css';
 
-export interface LoaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
+type BaseLoaderProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> & SafariNodeWithChildren;
+
+export interface LoaderProps extends BaseLoaderProps {
     color?: 'primary' | 'text' | 'disabled';
     size?: 'small' | 'medium' | 'large';
 }
 
 export default function Loader({ color = 'text', size = 'medium', ...props }: LoaderProps) {
-    const className = useClassName({ ...props, color, size }, 'Loader');
+    const className = useClassName({ ...props, color, size }, 'SafariUi-Loader');
     return (
         <div className={className}>
             {Array(4)

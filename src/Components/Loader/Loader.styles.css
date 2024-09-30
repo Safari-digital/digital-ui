@@ -1,14 +1,14 @@
-.Loader, .Loader > div {
+.SafariUi-Loader, .SafariUi-Loader > div {
     box-sizing: border-box
 }
 
-.Loader {
+.SafariUi-Loader {
     display: inline-block;
     position: relative;
     width: var(--size-block);
 }
 
-.Loader div {
+.SafariUi-Loader div {
     position: absolute;
     width: var(--size-dot);
     height: var(--size-dot);
@@ -64,19 +64,19 @@
     }
 }
 
-.Loader-color-primary {
+.SafariUi-Loader-color-primary {
     --color: var(--palette-primary);
 }
 
-.Loader-color-text {
+.SafariUi-Loader-color-text {
     --color: var(--palette-text);
 }
 
-.Loader-color-disabled {
+.SafariUi-Loader-color-disabled {
     --color: var(--palette-text-disabled);
 }
 
-.Loader-size-small {
+.SafariUi-Loader-size-small {
     --size-block: 40px;
     --size-dot: 6.66667px;
     --left-1: 4px;
@@ -85,7 +85,7 @@
     --translate: 12px;
 }
 
-.Loader-size-medium {
+.SafariUi-Loader-size-medium {
     --size-block: 60px;
     --size-dot: 10px;
     --left-1: 6px;
@@ -94,7 +94,7 @@
     --translate: 18px;
 }
 
-.Loader-size-large {
+.SafariUi-Loader-size-large {
     --size-block: 80px;
     --size-dot: 13.33333px;
     --left-1: 8px;
