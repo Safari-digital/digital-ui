@@ -32,11 +32,13 @@ export const Primary: StoryObj<typeof meta> = {
         fullWidth: false,
         fullHeight: false,
         resizable: false,
+        wrap: false,
         direction: 'row',
         align: 'start',
         justify: 'start',
         p: 1,
         m: 1,
+        gap: 0,
     },
     argTypes: {
         fullWidth: {
@@ -50,6 +52,11 @@ export const Primary: StoryObj<typeof meta> = {
             },
         },
         resizable: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        wrap: {
             control: {
                 type: 'boolean',
             },
@@ -78,6 +85,11 @@ export const Primary: StoryObj<typeof meta> = {
             },
         },
         m: {
+            control: {
+                type: 'number',
+            },
+        },
+        gap: {
             control: {
                 type: 'number',
             },

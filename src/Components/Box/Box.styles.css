@@ -17,6 +17,10 @@
     overflow: auto;
 }
 
+.SafariUi-Box-wrap {
+    flex-wrap: wrap;
+}
+
 .SafariUi-Box-direction-column {
     flex-direction: column;
 }
@@ -79,4 +83,16 @@
 
 .SafariUi-Box-m-3 {
     margin: var(--spacing-3);
+}
+
+.SafariUi-Box-gap-1 {
+    gap: var(--spacing-1);
+}
+
+.SafariUi-Box-gap-2 {
+    gap: var(--spacing-2);
+}
+
+.SafariUi-Box-gap-3 {
+    gap: var(--spacing-3);
 }
