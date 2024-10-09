@@ -21,5 +21,5 @@ export default function BaseIcon({
 }: IconProps & { children: React.ReactNode }) {
     const className = useClassName({ ...props, variant, color, size, direction, animation }, 'SafariUi-Icon');
     const resolved = useProps({ ...props, variant, color, size, direction, animation, className });
-    return resolved.mapProps();
+    return resolved.mapHtmlProps();
 }

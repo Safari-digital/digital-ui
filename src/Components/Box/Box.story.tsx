@@ -11,13 +11,7 @@ export default meta;
 export const Primary: StoryObj<typeof meta> = {
     decorators: Story => (
         <React.Fragment>
-            <style>
-                {`
-                    .SafariUi-Box {
-                        background-color: pink;
-                    }
-                `}
-            </style>
+            <style>{`.SafariUi-Box { background-color: pink; }`}</style>
             <Story />
         </React.Fragment>
     ),

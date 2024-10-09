@@ -1,36 +1,27 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Icon as component, type IconProps } from './index';
+import Component, { type AvatarProps } from './Avatar';
 import { Box } from '../Box';
 
-const meta: Meta<IconProps> = {
-    title: 'SVG/Icon',
-    decorators: (_, { args }) => (
-        <React.Fragment>
-            <style>{`.SafariUi-Box { border: 1px solid red; }`}</style>
-            {args.fullWidth ? (
+const meta: Meta<AvatarProps> = {
+    title: 'Images/Avatar',
+    decorators: (_, { args }) =>
+        args.fullWidth ? (
+            <React.Fragment>
+                <style>{`.SafariUi-Box { border: 1px solid red; }`}</style>
                 <Box resizable>
-                    <component.AccountIcon {...args} />
+                    <Component {...args} />
                 </Box>
-            ) : (
-                <Box direction="row" p={1} gap={1} wrap>
-                    {Object.values(component).map((Icon, i) => (
-                        <Icon key={i} {...args} />
-                    ))}
-                </Box>
-            )}
-        </React.Fragment>
-    ),
+            </React.Fragment>
+        ) : (
+            <Component {...args} onClick={() => 0} />
+        ),
 };
 type Story = StoryObj<typeof meta>;
 export default meta;
 
 export const Small: Story = {
     argTypes: {
-        variant: {
-            control: { type: 'select' },
-            options: ['filled', 'outlined'],
-        },
         color: {
             control: { type: 'select' },
             options: ['primary', 'disabled', 'text'],
@@ -39,24 +30,18 @@ export const Small: Story = {
             control: { type: 'select' },
             options: ['small', 'medium', 'large'],
         },
-        direction: {
-            control: { type: 'select' },
-            options: ['up', 'down', 'left', 'right'],
-        },
-        animation: {
-            control: { type: 'boolean' },
-        },
         fullWidth: {
             control: { type: 'boolean' },
+        },
+        src: {
+            control: { type: 'text' },
         },
     },
     args: {
         color: 'text',
-        variant: 'filled',
         size: 'small',
-        direction: 'up',
-        animation: false,
         fullWidth: false,
+        src: '',
     },
 };
 

@@ -128,4 +128,6 @@ export const booleanKeywords = [
     'resizable',
     'isWrap',
     'wrap',
+    'isInverted',
+    'inverted',
 ];
