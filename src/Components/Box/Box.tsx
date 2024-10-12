@@ -16,6 +16,7 @@ export interface BoxProps extends BaseBoxProps {
     direction?: 'row' | 'column';
     align?: 'start' | 'center' | 'end';
     justify?: 'start' | 'center' | 'end' | 'space-between' | 'space-around';
+    color?: string;
 }
 
 const Box = React.forwardRef<HTMLDivElement, BoxProps>(
@@ -31,6 +32,7 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
             direction = 'column',
             align = 'start',
             justify = 'start',
+            color,
             ...props
         }: BoxProps,
         ref,
@@ -52,7 +54,7 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
             'SafariUi-Box',
         );
 
-        return <div {...props} ref={ref} className={className} />;
+        return <div {...props} style={{ backgroundColor: color }} ref={ref} className={className} />;
     },
 );
 
