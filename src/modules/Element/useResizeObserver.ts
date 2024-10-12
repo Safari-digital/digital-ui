@@ -1,13 +1,19 @@
 import React from 'react';
 
-export default function useElementSize<T extends HTMLElement | Window>(element?: T | null) {
-    const [size, setSize] = React.useState<{ width: number; height: number } | null>(null);
+export default function useResizeObserver<T extends HTMLElement | Window>(
+    element: T | null,
+    callback: (size: { width: number; height: number }) => void,
+) {
+    const callbackRef = React.useRef(callback);
+    React.useEffect(() => {
+        callbackRef.current = callback;
+    }, [callback]);
 
     React.useLayoutEffect(() => {
         if (!element) return;
 
         if (element instanceof Window) {
-            const handleResize = () => setSize({ width: element.innerWidth, height: element.innerHeight });
+            const handleResize = () => callbackRef.current({ width: element.innerWidth, height: element.innerHeight });
             element.addEventListener('resize', handleResize);
             handleResize();
             return () => element.removeEventListener('resize', handleResize);
@@ -15,11 +21,9 @@ export default function useElementSize<T extends HTMLElement | Window>(element?:
 
         const resizeObserver = new ResizeObserver(entries => {
             const { width, height } = entries[0].contentRect;
-            setSize({ width, height });
+            callbackRef.current({ width, height });
         });
         resizeObserver.observe(element);
         return () => resizeObserver.disconnect();
     }, [element]);
-
-    return size;
 }

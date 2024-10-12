@@ -1,10 +1,11 @@
-import React, { type PropsWithChildren } from 'react';
+import React from 'react';
+import type { SafariNodeWithChildren } from '../types';
 import { useClassName, useProps } from '../../modules';
 import { useOnOpen } from './useOnOpen';
 import { useAnchor } from './useAnchor';
 import './PopOver.styles.css';
 
-export interface PopOverProps extends PropsWithChildren {
+export interface PopOverProps extends SafariNodeWithChildren {
     anchor: HTMLElement | null;
     open: boolean;
     direction?: 'left' | 'right';

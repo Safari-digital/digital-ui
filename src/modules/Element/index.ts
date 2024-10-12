@@ -1,2 +1,5 @@
 export { default as useElement } from './useElement';
-export { default as useElementSize } from './useElementSize';
+export { default as useElementPosition } from './useElementPosition';
+export { default as useElementSpacing } from './useElementSpacing';
+export { default as useWindow } from './useWindow';
+export { default as useResizeObserver } from './useResizeObserver';

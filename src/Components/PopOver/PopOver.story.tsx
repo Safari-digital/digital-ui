@@ -1,20 +1,20 @@
+/* eslint react-hooks/rules-of-hooks: 0 */
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import PopOver, { type PopOverProps } from './PopOver';
 import { Button } from '../Button';
 import { Box } from '../Box';
-
-const getRandomColor = () => `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+import { Color } from '../../modules';
 
 const meta: Meta<PopOverProps> = {
     title: 'Layout/PopOver',
     component: PopOver,
     decorators: () => {
-        const [open, setOpen] = React.useState(false); // eslint-disable-line react-hooks/rules-of-hooks
-        const [direction, setDirection] = React.useState<'left' | 'right'>('left'); // eslint-disable-line react-hooks/rules-of-hooks
-        const [includeButton, setIncludeButton] = React.useState(false); // eslint-disable-line react-hooks/rules-of-hooks
-        const [backgroundColor, setBackgroundColor] = React.useState(getRandomColor()); // eslint-disable-line react-hooks/rules-of-hooks
-        const ref = React.useRef(null); // eslint-disable-line react-hooks/rules-of-hooks
+        const [open, setOpen] = React.useState(false);
+        const [direction, setDirection] = React.useState<'left' | 'right'>('left');
+        const [includeButton, setIncludeButton] = React.useState(false);
+        const [backgroundColor, setBackgroundColor] = React.useState(Color.getRandomColor());
+        const ref = React.useRef(null);
 
         return (
             <div
@@ -45,7 +45,7 @@ const meta: Meta<PopOverProps> = {
                     anchor={ref.current}
                     includeAnchor={includeButton}
                     open={open}
-                    onOpen={() => setBackgroundColor(getRandomColor())}
+                    onOpen={() => setBackgroundColor(Color.getRandomColor())}
                     onClose={() => setOpen(!open)}
                     direction={direction}>
                     <Box gap={2}>

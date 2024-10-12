@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Button, { type ButtonProps } from './Button';
-import { Icon } from '../Icon';
+import { Icon as IconComponent } from '../Icon';
 
 const meta: Meta<ButtonProps> = {
     title: 'Inputs/Button',
@@ -9,7 +9,7 @@ const meta: Meta<ButtonProps> = {
     decorators: (Story, { args }) =>
         args.variant === 'icon' ? (
             <Button {...args}>
-                <Icon.GearIcon />
+                <IconComponent.GearIcon />
             </Button>
         ) : (
             <Story {...args} />
@@ -50,7 +50,7 @@ export const Primary: Story = {
     },
 };
 
-export const SecondaryVariant: Story = {
+export const Secondary: Story = {
     args: {
         ...Primary.args,
         variant: 'secondary',
@@ -59,7 +59,7 @@ export const SecondaryVariant: Story = {
     argTypes: Primary.argTypes,
 };
 
-export const TextVariant: Story = {
+export const Text: Story = {
     args: {
         ...Primary.args,
         variant: 'text',
@@ -68,7 +68,7 @@ export const TextVariant: Story = {
     argTypes: Primary.argTypes,
 };
 
-export const IconVariant: Story = {
+export const Icon: Story = {
     args: {
         ...Primary.args,
         variant: 'icon',

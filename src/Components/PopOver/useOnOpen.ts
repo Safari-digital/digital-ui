@@ -1,9 +1,9 @@
 import React from 'react';
-import { useElementSize } from '../../modules';
+import { useElement } from '../../modules';
 import type { PopOverProps } from './PopOver';
 
 export function useOnOpen(open: boolean, anchor: PopOverProps['anchor'], callback?: () => void) {
-    const windowSize = useElementSize(window);
+    const anchorState = useElement(anchor);
     const [hasOpened, setHasOpened] = React.useState(false);
 
     React.useEffect(() => {
@@ -16,7 +16,6 @@ export function useOnOpen(open: boolean, anchor: PopOverProps['anchor'], callbac
     }, [hasOpened, callback, open]);
 
     React.useEffect(() => {
-        if (!anchor) return;
-        anchor.style.zIndex = open ? '1002' : 'unset';
-    }, [anchor, open, windowSize]);
+        anchorState.mutateStyle({ zIndex: open ? '1002' : 'unset' });
+    }, [anchorState, open]);
 }
