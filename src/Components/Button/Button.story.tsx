@@ -39,6 +39,12 @@ export const Primary: Story = {
             control: { type: 'select' },
             options: ['primary', 'secondary', 'text', 'icon'],
         },
+        id: {
+            control: { type: 'text' },
+        },
+        className: {
+            control: { type: 'text' },
+        },
     },
     args: {
         variant: 'primary',

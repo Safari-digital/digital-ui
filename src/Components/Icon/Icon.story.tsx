@@ -49,6 +49,8 @@ export const Small: Story = {
         fullWidth: {
             control: { type: 'boolean' },
         },
+        id: { control: 'text' },
+        className: { control: 'text' },
     },
     args: {
         color: 'text',

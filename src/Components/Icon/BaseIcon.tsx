@@ -1,8 +1,9 @@
 import type React from 'react';
 import { useClassName, useProps } from '../../modules';
+import type { SafariNode } from '../types';
 import './Icon.styles.css';
 
-export interface IconProps {
+export interface IconProps extends SafariNode {
     color?: 'primary' | 'text' | 'disabled';
     variant?: 'outlined' | 'filled';
     size?: 'small' | 'medium' | 'large';

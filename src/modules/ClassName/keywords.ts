@@ -11,6 +11,7 @@ export const excludedKeywords = [
     'htmlFor',
     'tabIndex',
     'data',
+    'value',
 ];
 
 export const actionKeywords = [
