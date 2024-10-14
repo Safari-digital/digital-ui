@@ -15,7 +15,7 @@ export default defineConfig({
             output: {
                 preserveModules: true,
             },
-            external: ['react', '@safari-node/core', 'src/**/*.story.tsx', 'src/**/storybook'],
+            external: ['react', '@safari-digital/core', 'src/**/*.story.tsx', 'src/**/storybook'],
         },
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),

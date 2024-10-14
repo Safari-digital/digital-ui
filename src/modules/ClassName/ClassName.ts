@@ -1,4 +1,4 @@
-import '@safari-node/core';
+import '@safari-digital/core';
 import { actionKeywords, booleanKeywords, excludedKeywords } from './keywords';
 
 /**
