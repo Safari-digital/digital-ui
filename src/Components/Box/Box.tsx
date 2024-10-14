@@ -5,10 +5,16 @@ import './Box.styles.css';
 
 type BaseBoxProps = React.HTMLAttributes<HTMLDivElement> & SafariNodeWithChildren;
 
+type spacing = null | 0 | 1 | 2 | 3;
+
 export interface BoxProps extends BaseBoxProps {
-    p?: null | 0 | 1 | 2 | 3;
-    m?: null | 0 | 1 | 2 | 3;
-    gap?: null | 0 | 1 | 2 | 3;
+    p?: spacing;
+    pt?: spacing;
+    pb?: spacing;
+    m?: spacing;
+    mt?: spacing;
+    mb?: spacing;
+    gap?: spacing;
     resizable?: boolean;
     fullWidth?: boolean;
     fullHeight?: boolean;
