@@ -1,7 +1,6 @@
-import FormField from './FormField';
-import Form from './Form';
+import BaseComponent from './Form';
+import Field from './FormField';
 
-export type { FormFieldProps } from './FormField';
 export type { FormProps } from './Form';
-
-export default Object.assign(Form, { Field: FormField });
+export type { FormFieldProps } from './FormField';
+export const Form = Object.assign(BaseComponent, { Field });
