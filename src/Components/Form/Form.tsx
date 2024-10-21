@@ -6,7 +6,7 @@ import type { SafariNodeWithChildren } from '../types';
 import './Form.styles.css';
 
 export interface FormProps extends SafariNodeWithChildren {
-    onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+    onSubmit: (form: Record<string, any>) => void;
     loading?: boolean | undefined;
 }
 
@@ -16,7 +16,10 @@ export default function Form({ children, id, ...props }: FormProps) {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        props.onSubmit(e);
+        const form = new FormData(e.currentTarget);
+        const formData: { [key: string]: FormDataEntryValue } = {};
+        form.forEach((value, key) => (formData[key] = value));
+        props.onSubmit(formData as any);
     };
 
     return (

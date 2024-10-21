@@ -16,7 +16,7 @@ export default meta;
 
 export const ManualForm: Story = {
     decorators: (_, { args }) => {
-        const { fields } = useForm([
+        const { formState: fields } = useForm([
             { id: 'Required', label: 'Required', default: 'default', type: 'text', required: true },
             { id: 'Email', label: 'Email', default: 'default', type: 'email', required: true },
             {
@@ -54,9 +54,18 @@ export const ManualForm: Story = {
 
 export const HookRenderedForm: Story = {
     decorators: (_, { args }) => {
-        const { fields, renderFields } = useForm([{ id: 'Test', label: 'Test', default: '', type: 'text' }]);
+        const { formState, formBody, formPatch, renderFields } = useForm([
+            { id: 'Test', label: 'Test', default: '', type: 'text' },
+        ]);
         return (
-            <Form onSubmit={() => console.log('data', fields)} loading={args.loading}>
+            <Form
+                onSubmit={form => {
+                    console.log('state', formState);
+                    console.log('form', form);
+                    console.log('patch', formPatch);
+                    console.log('body', formBody);
+                }}
+                loading={args.loading}>
                 {renderFields()}
             </Form>
         );

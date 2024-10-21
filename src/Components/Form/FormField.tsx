@@ -26,7 +26,7 @@ const FormField = React.forwardRef(
                 align="center">
                 <React.Fragment>
                     {label && <label className="SafariUi-FormField-label">{label}</label>}
-                    <InputText type={type} {...inputProps} />
+                    <InputText type={type} name={id} {...inputProps} />
                 </React.Fragment>
             </Box>
         );

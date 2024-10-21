@@ -14,9 +14,10 @@ export interface InputTextProps extends SafariInputNode {
     requiredMessage?: string;
     type?: 'text' | 'password' | 'email';
     fullWidth?: boolean | undefined;
+    name?: string;
 }
 
-export default function InputText({ type = 'text', pattern, patternMessage, ...props }: InputTextProps) {
+export default function InputText({ type = 'text', pattern, patternMessage, name, ...props }: InputTextProps) {
     const ref = React.useRef<HTMLInputElement>(null);
     const [hasError, setHasError] = React.useState(false);
     const [selected, setSelected] = React.useState(false);
@@ -68,6 +69,7 @@ export default function InputText({ type = 'text', pattern, patternMessage, ...p
             <input
                 ref={ref}
                 value={props.value}
+                name={name}
                 pattern={pattern}
                 disabled={props.disabled}
                 type={type}
