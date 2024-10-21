@@ -1,8 +1,8 @@
 import React from 'react';
-import type { SafariNodeWithChildren } from '../types';
-import { Button } from '../Button';
+import { useClassName, useProps } from '../../modules';
 import { Box } from '../Box';
-import { useClassName } from '../../modules';
+import { Button } from '../Button';
+import type { SafariNodeWithChildren } from '../types';
 import './Form.styles.css';
 
 export interface FormProps extends SafariNodeWithChildren {
@@ -12,6 +12,7 @@ export interface FormProps extends SafariNodeWithChildren {
 
 export default function Form({ children, id, ...props }: FormProps) {
     const className = useClassName(props, 'SafariUi-Form');
+    const { mapProps } = useProps({ children, loading: props.loading });
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -20,7 +21,7 @@ export default function Form({ children, id, ...props }: FormProps) {
 
     return (
         <form id={id} className={className} onSubmit={handleSubmit}>
-            {children}
+            {mapProps()}
             <Box mt={1} justify="end" direction="row">
                 <Button loading={props.loading} type="submit">
                     Submit

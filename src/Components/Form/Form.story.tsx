@@ -1,50 +1,66 @@
 /* eslint react-hooks/rules-of-hooks: 0 */
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+import { Box } from '../Box';
 import Form, { type FormProps } from './Form';
 import FormField from './FormField';
-import { Box } from '../Box';
+import useForm from './useForm';
 
 const meta: Meta<FormProps> = {
     title: 'Inputs/Form',
     component: Form,
-    decorators: () => {
-        const [formState, setFormState] = React.useState({
-            Required: { value: '', type: 'text' as const, required: true },
-            Email: { value: '', type: 'email' as const, required: true },
-            Pattern: {
-                value: '',
-                type: 'text' as const,
-                pattern: '^[A-Za-z]+$',
-                patternMessage: 'Only letters are allowed',
-            },
-        });
-
-        return (
-            <Box>
-                <Form onSubmit={() => console.log('data', formState)}>
-                    {Object.entries(formState).map(([key, obj]) => (
-                        <FormField
-                            key={key}
-                            label={`${key} field - ${obj.type}`}
-                            // @ts-ignore
-                            onChange={v => setFormState(prev => ({ ...prev, [key]: { ...prev[key], value: v } }))}
-                            {...obj}
-                        />
-                    ))}
-                </Form>
-                <pre>
-                    <code>{JSON.stringify(formState, null, 2)}</code>
-                </pre>
-            </Box>
-        );
-    },
 };
 
 type Story = StoryObj<typeof meta>;
 export default meta;
 
-export const Primary: Story = {
+export const ManualForm: Story = {
+    decorators: (_, { args }) => {
+        const { fields } = useForm([
+            { id: 'Required', label: 'Required', default: 'default', type: 'text', required: true },
+            { id: 'Email', label: 'Email', default: 'default', type: 'email', required: true },
+            {
+                id: 'Pattern',
+                label: 'Pattern',
+                default: 'default',
+                type: 'text',
+                pattern: '^[A-Za-z]+$',
+                patternMessage: 'Only letters are allowed',
+            },
+        ]);
+
+        return (
+            <React.Fragment>
+                <Box>
+                    <Form onSubmit={() => console.log('data', fields)} loading={args.loading}>
+                        {fields.map(({ id, ...rest }) => (
+                            <FormField {...rest} key={id} />
+                        ))}
+                    </Form>
+                    <pre>
+                        <code>{JSON.stringify(fields, null, 2)}</code>
+                    </pre>
+                </Box>
+            </React.Fragment>
+        );
+    },
+    argTypes: {
+        loading: { control: 'boolean' },
+    },
+    args: {
+        loading: false,
+    },
+};
+
+export const HookRenderedForm: Story = {
+    decorators: (_, { args }) => {
+        const { fields, renderFields } = useForm([{ id: 'Test', label: 'Test', default: '', type: 'text' }]);
+        return (
+            <Form onSubmit={() => console.log('data', fields)} loading={args.loading}>
+                {renderFields()}
+            </Form>
+        );
+    },
     argTypes: {
         loading: { control: 'boolean' },
     },

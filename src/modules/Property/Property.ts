@@ -8,7 +8,13 @@ export default class Property {
      * @returns The mapped children
      */
     public static mapProps(children: React.ReactNode, properties: Record<string, unknown>) {
-        return React.Children.map(children, c => (React.isValidElement(c) ? React.cloneElement(c, properties) : c));
+        const mapChild = (child: React.ReactNode): React.ReactNode => {
+            if (!React.isValidElement(child)) return child;
+            return child.type === React.Fragment
+                ? React.cloneElement(child, { key: child.key }, React.Children.map(child.props.children, mapChild))
+                : React.cloneElement(child, { ...properties, key: child.key });
+        };
+        return React.Children.map(children, mapChild);
     }
 
     /**

@@ -1,7 +1,13 @@
 const LIBPREFIX = 'SAFARI-UI';
 
-const logError = (message: string) => {
-    console.error(`${LIBPREFIX} - ERROR: ${message}`);
+export type LogType = 'info' | 'error';
+
+const log = (type: LogType, ...message: any[]) => {
+    console[type](`${LIBPREFIX} - ${type}:`, ...message);
 };
 
-export default { logError };
+const logError = (...message: string[]) => log('error', ...message);
+
+const logInfo = (...message: string[]) => log('info', ...message);
+
+export default { log, logError, logInfo };

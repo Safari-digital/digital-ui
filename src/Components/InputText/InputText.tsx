@@ -1,13 +1,13 @@
 import React from 'react';
-import type { SafariInputNode } from '../types';
 import { useClassName } from '../../modules';
+import type { ControlledHandler, SafariInputNode } from '../types';
 import './InputText.styles.css';
 
 export interface InputTextProps extends SafariInputNode {
     value: string;
-    onChange: (value: string) => void;
-    onSelect?: (value: string) => void;
-    onBlur?: (value: string) => void;
+    onChange: ControlledHandler<string>;
+    onSelect?: ControlledHandler<string>;
+    onBlur?: ControlledHandler<string>;
     pattern?: string;
     patternMessage?: string;
     required?: boolean;
@@ -67,6 +67,7 @@ export default function InputText({ type = 'text', pattern, patternMessage, ...p
         <div className={className} id={props.id}>
             <input
                 ref={ref}
+                value={props.value}
                 pattern={pattern}
                 disabled={props.disabled}
                 type={type}

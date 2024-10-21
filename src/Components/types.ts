@@ -14,3 +14,5 @@ export interface SafariNode {
 export type SafariInputNode = BaseInputProps & SafariNode;
 
 export type SafariNodeWithChildren = React.PropsWithChildren & SafariNode;
+
+export type ControlledHandler<T> = (value: T) => void | React.Dispatch<React.SetStateAction<T>>;

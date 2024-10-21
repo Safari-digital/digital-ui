@@ -1,19 +1,19 @@
 import React from 'react';
-import { InputText, type InputTextProps } from '../InputText';
-import { Box } from '../Box';
 import { useClassName } from '../../modules';
+import { Box } from '../Box';
+import { InputText, type InputTextProps } from '../InputText';
+import type { ControlledHandler } from '../types';
 import './Form.styles.css';
 
 export interface FormFieldProps extends Omit<InputTextProps, 'value' | 'onChange'> {
     value: string;
-    onChange: (value: string) => void;
+    onChange: ControlledHandler<string>;
     label?: string;
 }
 
 const FormField = React.forwardRef(
     ({ label, type, className, id, ...inputProps }: FormFieldProps, ref: React.Ref<HTMLDivElement>) => {
         const resolvedClassName = useClassName({ type, className }, 'SafariUi-FormField');
-        console.log(inputProps);
         return (
             <Box
                 id={id}
