@@ -1,6 +1,6 @@
 import React from 'react';
-import { type PopOverProps } from './PopOver';
 import { useElement, useWindow } from '../../modules';
+import { type PopOverProps } from './PopOver';
 
 export function useAnchor(
     anchor: HTMLElement | null,
@@ -41,11 +41,11 @@ export function useAnchor(
             left:
                 !options?.direction || options?.direction === 'left'
                     ? `${anchorState.left - dialogState.padding.left}px`
-                    : 'unset',
+                    : `${anchorState.right - dialogState.width + dialogState.padding.right}px`,
             right:
                 options?.direction === 'right'
                     ? `${anchorState.right - (anchorState.width + dialogState.padding.right)}px`
-                    : 'unset',
+                    : `${windowState.width - anchorState.right - dialogState.padding.right}px`,
         });
-    }, [anchorState, dialogState, options]);
+    }, [anchorState, dialogState, options, windowState]);
 }
