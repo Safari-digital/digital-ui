@@ -13,7 +13,7 @@
     position: relative;
     white-space: nowrap;
 
-    padding: calc(var(--spacing-1) * .5) var(--spacing-2);
+    padding: calc(var(--spacing-1) * 0.5) var(--spacing-2);
     border: 1px solid;
     border-radius: var(--spacing-radius-1);
     color: inherit;
@@ -65,7 +65,8 @@
     background-color: var(--palette-primary);
     border-color: var(--palette-primary);
 
-    &:hover, &.SafariUi-Button-selected {
+    &:hover,
+    &.SafariUi-Button-selected {
         background-color: var(--palette-primary-light);
         border-color: var(--palette-primary-light);
     }
@@ -86,7 +87,8 @@
         color: var(--palette-primary-light);
     }
 
-    &:hover, &.SafariUi-Button-selected {
+    &:hover,
+    &.SafariUi-Button-selected {
         border-color: var(--palette-primary);
         color: var(--palette-primary);
     }
@@ -105,7 +107,8 @@
         color: var(--palette-primary-light);
     }
 
-    &:hover, &.SafariUi-Button-selected {
+    &:hover,
+    &.SafariUi-Button-selected {
         color: var(--palette-primary);
     }
 
@@ -115,9 +118,9 @@
 }
 
 .SafariUi-Button-variant-icon {
-    padding: calc(var(--spacing-1) * .5);
+    padding: calc(var(--spacing-1) * 0.5);
 
-    line-height: .8rem;
+    line-height: 0.8rem;
     background-color: transparent;
     border-color: transparent;
 
@@ -129,8 +132,7 @@
         background-color: var(--palette-primary);
     }
 
-    &.SafariUi-Button-disabled {
-        color: var(--palette-text-disabled);
-        opacity: 75%;
+    &.SafariUi-Button-disabled svg {
+        fill: var(--palette-text-disabled);
     }
 }

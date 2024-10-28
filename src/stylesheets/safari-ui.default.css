@@ -1,5 +1,5 @@
 :root {
-    --spacing-1: .5rem;
+    --spacing-1: 0.5rem;
     --spacing-2: 1rem;
     --spacing-3: 1.5rem;
     --spacing-radius-1: 0.25rem;
@@ -47,7 +47,21 @@ iframe {
     border: none;
 }
 
-p, h1, h2, h3, h4, h5, h6, span, a, button, input, select, textarea, label, dialog {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+button,
+input,
+select,
+textarea,
+label,
+dialog {
     font-family: var(--font-family);
     font-weight: var(--font-weight-regular);
     font-size: var(--font-size-regular);
