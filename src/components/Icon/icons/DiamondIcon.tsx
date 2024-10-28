@@ -1,3 +1,4 @@
+import React from 'react';
 import BaseIcon, { type IconProps } from '../BaseIcon';
 
 export const DiamondIcon = ({ variant, ...props }: IconProps) => (
