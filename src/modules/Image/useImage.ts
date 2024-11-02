@@ -1,4 +1,3 @@
-import '@safari-digital/core';
 import React from 'react';
 import { Logger } from '../Logger';
 
