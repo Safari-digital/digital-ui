@@ -7,10 +7,11 @@ import './Form.styles.css';
 
 export interface FormProps extends SafariNodeWithChildren {
     onSubmit: (form: Record<string, any>) => void;
+    actionLabel?: string | undefined;
     loading?: boolean | undefined;
 }
 
-export default function Form({ children, id, ...props }: FormProps) {
+export default function Form({ children, id, actionLabel, ...props }: FormProps) {
     const className = useClassName(props, 'SafariUi-Form');
     const { mapProps } = useProps({ children, loading: props.loading });
 
@@ -27,7 +28,7 @@ export default function Form({ children, id, ...props }: FormProps) {
             {mapProps()}
             <Box mt={1} justify="end" direction="row">
                 <Button loading={props.loading} type="submit">
-                    Submit
+                    {actionLabel ?? null}
                 </Button>
             </Box>
         </form>
