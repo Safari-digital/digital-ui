@@ -27,6 +27,7 @@ import { MenuIcon } from './icons/MenuIcon';
 import { SearchIcon } from './icons/SearchIcon';
 import { ThemeMoonIcon } from './icons/ThemeMoonIcon';
 import { ThemeSunIcon } from './icons/ThemeSunIcon';
+import { TrashIcon } from './icons/TrashIcon';
 
 export type { IconProps } from './BaseIcon';
 
@@ -59,4 +60,5 @@ export const Icon = Object.assign(Component, {
     SearchIcon,
     ThemeMoonIcon,
     ThemeSunIcon,
+    TrashIcon,
 });
